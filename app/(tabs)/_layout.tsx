@@ -2,35 +2,12 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 import { Tabs, Redirect } from "expo-router";
 import { icons } from "../../constants";
+import TabIcon from "@/components/TabIcon";
 
-interface TabIconProps {
-  icon: any;
-  color: string;
-  name: string;
-  focused: boolean;
-}
 
-const TabIcon = ({ icon, color, name, focused }: TabIconProps) => {
-  return (
-    <View className="items-center justify-center gap-1">
-      <Image
-        source={icon}
-        resizeMode="contain"
-        tintColor={color}
-        className={"w-6 h-6"}
-      />
-      <Text
-        className={`${focused ? "font-psemibold" : "font-regular"} text-xs`} style={{color:color}}
-      >
-        {name}
-      </Text>
-    </View>
-  );
-};
 
 const Tablayout = () => {
   return (
-    <>
       <Tabs
         screenOptions={{
           tabBarShowLabel: false,
@@ -102,7 +79,7 @@ const Tablayout = () => {
           }}
         />
       </Tabs>
-    </>
+
   );
 };
 
