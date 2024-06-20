@@ -39,7 +39,7 @@ const SigninScreen = () => {
   };
 
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="bg-[#fff] h-full">
       <ScrollView>
         <View className="  w-full justify-center h-full px-4 my-6">
           <Image
@@ -48,8 +48,8 @@ const SigninScreen = () => {
             resizeMode="contain"
           />
 
-          <Text className="text-white font-psemibold text-xl mt-3">
-            Log in to Aora
+          <Text className="text-black font-psemibold text-xl mt-3">
+            Log in to Desi
           </Text>
 
           <FormField

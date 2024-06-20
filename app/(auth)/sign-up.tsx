@@ -51,7 +51,7 @@ const Signup = () => {
             resizeMode="contain"
           />
 
-          <Text className="text-white font-psemibold text-xl mt-3">
+          <Text className="text-black font-psemibold text-xl mt-3">
             Register your Aora Account
           </Text>
           <FormField

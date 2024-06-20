@@ -27,12 +27,12 @@ const FormField = ({
     <View className={`space-y-2 ${extraStyles}`}>
       <Text className="text-base text-gray-100 font-pmedium">{title}</Text>
 
-      <View className="w-full h-14 px-4 bg-black-100 flex-row rounded-xl focus:border-secondary border-2 items-center border-black-200">
+      <View className="w-full h-14 px-4 bg-white/50 flex-row rounded-xl focus:border-secondary-200 border-2 items-center border-secondary">
         <TextInput
           value={value}
           placeholder={placeholder}
           onChangeText={handleChange}
-          className="flex-1 text-white "
+          className="flex-1 text-black "
           placeholderTextColor={"#7b7b8b"}
           secureTextEntry={type === "password" && !isShowPassword}
         />

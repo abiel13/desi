@@ -11,10 +11,10 @@ const Tablayout = () => {
       <Tabs
         screenOptions={{
           tabBarShowLabel: false,
-          tabBarActiveTintColor:'#ffa001',
+          tabBarActiveTintColor:'#019CFF',
           tabBarInactiveTintColor:'#cdcde0',
           tabBarStyle:{
-            backgroundColor:'#161622',
+            backgroundColor:'#fff',
           }
         }}
       >
@@ -34,21 +34,6 @@ const Tablayout = () => {
           }}
         />
         <Tabs.Screen
-          name="bookmark"
-          options={{
-            title: "Bookmark",
-            headerShown: false,
-            tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                icon={icons.bookmark}
-                color={color}
-                name={"Bookmark"}
-                focused={focused}
-              />
-            ),
-          }}
-        />{" "}
-        <Tabs.Screen
           name="create"
           options={{
             title: "Create",
@@ -62,7 +47,7 @@ const Tablayout = () => {
               />
             ),
           }}
-        />{" "}
+        />
         <Tabs.Screen
           name="profile"
           options={{

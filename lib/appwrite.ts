@@ -163,9 +163,9 @@ export const logoutUser = async () => {
   }
 };
 
-export const getFilePreview = async (fileId: string, type: string) => {
+export const getFilePreviews = async (fileId: string, type: string) => {
   let fileUrl;
-
+  console.log(fileId, type);
   try {
     if (type === "image") {
       fileUrl = storage.getFilePreview(
@@ -193,27 +193,35 @@ export const getFilePreview = async (fileId: string, type: string) => {
 
 export const uploadFiles = async (file: any, type: string) => {
   if (!file) return;
-
-  const { mimeType, ...rest } = file;
-
-  const asset = { type: mimeType, ...rest };
   try {
+    const { mimeType, ...rest } = file; // Extract necessary properties.
+    const asset = { mimeType, ...rest };
+
+    // Logging for debugging purposes
+    console.log("Asset:", asset);
+    console.log("Type:", type);
+
+    // Assuming appwriteConfig is imported from somewhere
     const uploadFile = await storage.createFile(
       appwriteConfig.storageId,
       ID.unique(),
       asset
     );
+    console.log(uploadFile);
 
-    const fileUrl = await getFilePreview(uploadFile.$id, type);
+    if (!uploadFile) throw Error;
+
+    const fileUrl = await getFilePreviews(uploadFile.$id, type);
+
     return fileUrl;
   } catch (error) {
+    console.log(error);
     throw new Error(error as string);
   }
 };
-
 export const createVideo = async (form: formI) => {
   try {
-    const [thumbnail, videoUrl] = await Promise.all([
+    const [thumbnailUrl, videoUrl] = await Promise.all([
       uploadFiles(form.thumbnail, "image"),
       uploadFiles(form.video, "video"),
     ]);
@@ -223,7 +231,7 @@ export const createVideo = async (form: formI) => {
       appwriteConfig.videoCollectionId,
       ID.unique(),
       {
-        thumbnail,
+        thumbnail: thumbnailUrl,
         video: videoUrl,
         title: form.title,
         Creator: form.userId,

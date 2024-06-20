@@ -18,7 +18,7 @@ const EmptyState = ({ title, subtitle }: EmptyStateI) => {
         resizeMode="contain"
         className="w-[200px] h-[200px]"
       />
-      <Text className="font-psemibold  text-white">{title}</Text>
+      <Text className="font-psemibold  text-black">{title}</Text>
       <Text className="text-gray-100 font-pregular text-base">{subtitle}</Text>
 
       <CustomButton

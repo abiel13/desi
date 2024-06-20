@@ -1,7 +1,7 @@
 import CustomButton from "@/components/CustomButton";
 import FormField from "@/components/FormField";
 import { ResizeMode, Video } from "expo-av";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -9,8 +9,10 @@ import {
   TouchableOpacity,
   Image,
   Alert,
+  Platform,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import * as ImagePicker from "expo-image-picker";
 import * as DocumentPicker from "expo-document-picker";
 import { router } from "expo-router";
 import { useGlobalContext } from "@/context/GlobalProvider";
@@ -34,13 +36,27 @@ const Create = () => {
   });
 
   const openPicker = async (selectType: "image" | "video") => {
-    const result = await DocumentPicker.getDocumentAsync({
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (status !== "granted") {
+      alert("Sorry, we need camera roll permissions to make this work!");
+    }
+
+    let result = await DocumentPicker.getDocumentAsync({
       type:
         selectType === "image"
-          ? ["image/png", "image/jpg"]
+          ? ["image/jpg", "image/jpeg", "image/png"]
           : ["video/mp4", "video/gif"],
     });
 
+    // let result = await ImagePicker.launchImageLibraryAsync({
+    //   mediaTypes:
+    //     selectType === "image"
+    //       ? ImagePicker.MediaTypeOptions.Images
+    //       : ImagePicker.MediaTypeOptions.Videos,
+    //   aspect: [4, 3],
+    //   quality: 1,
+    // });
+    console.log(result);
     if (!result.canceled) {
       if (selectType === "image") {
         setform({ ...form, thumbnail: result.assets[0] });
@@ -52,10 +68,8 @@ const Create = () => {
   };
 
   const submit = async () => {
-    const { video, thumbnail, title } = form;
-
-    if (!video || !thumbnail || !title.length) {
-      Alert.alert(
+    if (!form.video || !form.thumbnail || !form.title.length) {
+      return Alert.alert(
         "Missing Required Fields",
         "Please fill in all the fields to create post"
       );
@@ -75,9 +89,9 @@ const Create = () => {
   };
 
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="bg-[#fff] h-full">
       <ScrollView className="px-4 my-6">
-        <Text className="font-psemibold text-lg text-white">Upload Video</Text>
+        <Text className="font-psemibold text-lg text-black">Upload Video</Text>
 
         <FormField
           title="Video Title"
@@ -92,7 +106,7 @@ const Create = () => {
         />
 
         <View className="mt-7 ">
-          <Text className="text-white font-pmedium">Upload Video</Text>
+          <Text className="text-black font-pmedium">Upload Video</Text>
 
           <TouchableOpacity onPress={() => openPicker("video")}>
             {form.video ? (
@@ -103,8 +117,8 @@ const Create = () => {
                 className="w-full h-64 rounded-2xl"
               />
             ) : (
-              <View className="items-center justify-center w-full bg-black-100 h-52 rounded-xl space-y-2">
-                <Text className="font-psemibold text-white">
+              <View className="items-center justify-center w-full bg-white/50 h-52 rounded-xl space-y-2 border border-secondary">
+                <Text className="font-psemibold text-black">
                   click to upload video
                 </Text>
               </View>
@@ -113,7 +127,7 @@ const Create = () => {
         </View>
 
         <View className="mt-7 ">
-          <Text className="text-white font-pmedium">Upload Image</Text>
+          <Text className="text-black font-pmedium">Upload Image</Text>
 
           <TouchableOpacity onPress={() => openPicker("image")}>
             {form.thumbnail ? (
@@ -123,8 +137,8 @@ const Create = () => {
                 resizeMode="cover"
               />
             ) : (
-              <View className="items-center justify-center w-full bg-black-100 h-16 mt-1 rounded-xl space-y-2">
-                <Text className="font-psemibold text-white">
+              <View className="items-center justify-center w-full bg-white/50 border border-secondary h-16 mt-1 rounded-xl space-y-2">
+                <Text className="font-psemibold text-black">
                   click to upload image
                 </Text>
               </View>

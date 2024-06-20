@@ -13,7 +13,7 @@ const App = () => {
   if (!isLoading && isLoggedIn) return <Redirect href={"/home"} />;
 
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="bg-[#fff] h-full">
       <ScrollView
         contentContainerStyle={{
           height: "100%",
@@ -31,9 +31,9 @@ const App = () => {
             className="max-w-[350px] w-full h-[280px] "
           />
           <View className="relative mt-5">
-            <Text className="text-3xl text-white font-bold text-center">
+            <Text className="text-3xl text-black font-bold text-center">
               Discover Endless Posibilities with
-              <Text className="text-secondary-200"> Aora</Text>
+              <Text className="text-secondary-200"> Desi</Text>
             </Text>
             <Image
               source={images.path}

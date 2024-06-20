@@ -26,12 +26,12 @@ const SearchInput = ({ initialQuery }: { initialQuery?: string }) => {
   };
 
   return (
-    <View className="w-full h-14 px-4 bg-black-100 flex-row rounded-xl focus:border-secondary border-2 items-center border-black-200">
+    <View className="w-full h-14 px-4 bg-white/100 flex-row rounded-xl focus:border-secondary border-2 items-center border-black-200">
       <TextInput
         value={query}
         placeholder={"Search for a video idea"}
         onChangeText={(e) => setQuery(e)}
-        className="flex-1 text-white font-pregular mt-0.5 space-x-4 "
+        className="flex-1 text-black font-pregular mt-0.5 space-x-4 "
         placeholderTextColor={"#7b7b8b"}
       />
       <TouchableOpacity onPress={handlePress}>

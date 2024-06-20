@@ -31,7 +31,7 @@ const Search = () => {
   };
 
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="bg-[#fff] h-full">
       <FlatList
         data={posts}
         keyExtractor={(item) => `${item.$id}`}
@@ -43,7 +43,7 @@ const Search = () => {
                 <Text className="font-pmedim text-gray-100 text-sm">
                   Search Results For
                 </Text>
-                <Text className="font-psemibold text-2xl text-white">
+                <Text className="font-psemibold text-2xl text-black">
                   {query}
                 </Text>
               </View>

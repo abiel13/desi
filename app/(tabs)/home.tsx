@@ -35,7 +35,7 @@ const Home = () => {
   };
 
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="bg-[#fff] h-full">
       <FlatList
         data={posts}
         keyExtractor={(item) => `${item.$id}`}
@@ -47,7 +47,7 @@ const Home = () => {
                 <Text className="font-pmedim text-gray-100 text-sm">
                   Welcome Back
                 </Text>
-                <Text className="font-psemibold text-2xl text-white">
+                <Text className="font-psemibold text-2xl text-black">
                   {user?.username}
                 </Text>
               </View>

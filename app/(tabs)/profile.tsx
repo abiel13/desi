@@ -43,7 +43,7 @@ const Profile = () => {
   };
 
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="bg-[#fff] h-full">
       <FlatList
         data={posts}
         keyExtractor={(item) => `${item.$id}`}
@@ -68,8 +68,8 @@ const Profile = () => {
                   resizeMode="contain"
                 />
               </View>
-              <Text className="text-lg font-psemibold text-white">
-                {user.username}
+              <Text className="text-lg font-psemibold text-black">
+                {user?.username}
               </Text>
             </View>
           </View>

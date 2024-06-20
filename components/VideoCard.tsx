@@ -37,7 +37,7 @@ const VideoCard = ({ video }: VideoCardI) => {
           </View>
           <View className="justify-center flex-1 gap-y-1">
             <Text
-              className="text-sm font-psemibold text-white"
+              className="text-sm font-psemibold text-black"
               numberOfLines={1}
             >
               {title}
