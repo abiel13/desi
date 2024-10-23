@@ -1,50 +1,108 @@
-# Welcome to your Expo app 👋
+Here's a basic `README.md` for the **Desi** app:
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+---
 
-## Get started
+# Desi - Video Sharing App
 
-1. Install dependencies
+**Desi** is a cross-platform video-sharing application built using modern technologies to deliver a seamless user experience. The app allows users to upload, share, and explore videos effortlessly, with a fast and responsive UI.
+
+## Features
+
+- **Video Sharing**: Upload and share videos with the community.
+- **Cross-Platform**: Built with React Native, the app works smoothly on both iOS and Android devices.
+- **Responsive Design**: Styled with NativeWind for a clean and adaptive interface.
+- **Scalable Backend**: Uses Appwrite for managing users, databases, file storage, and more.
+- **Strong Typing**: Developed with TypeScript to ensure type safety and maintainability.
+
+## Built With
+
+- **React Native**: For building the mobile app across iOS and Android.
+- **Expo**: A toolset to enhance development speed with easy testing and deployment.
+- **Appwrite**: Backend-as-a-Service for managing authentication, databases, and storage.
+- **NativeWind**: A Tailwind CSS-inspired utility-first styling framework for React Native.
+- **TypeScript**: Superset of JavaScript for static type checking and improved development workflows.
+
+## Getting Started
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **Node.js** (v14 or higher)
+- **Expo CLI** (v5 or higher)
+- **Appwrite** (set up your instance or use Appwrite Cloud)
+- **React Native CLI** (if building for Android/iOS locally)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/abiel/desi.git
+   cd desi
+   ```
+
+2. Install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Set up **Appwrite**:
+
+   - Create an Appwrite project.
+   - Set up authentication, database, and storage.
+   - Update the Appwrite endpoint and project ID in the app's environment configuration.
+
+4. Start the development server:
 
    ```bash
-    npx expo start
+   expo start
    ```
 
-In the output, you'll find options to open the app in a
+5. To run on a specific platform:
+   - For Android: `expo run:android`
+   - For iOS: `expo run:ios` (requires macOS)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Environment Variables
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Configure the environment variables in a `.env` file:
 
 ```bash
-npm run reset-project
+APPWRITE_ENDPOINT=https://your-appwrite-endpoint
+APPWRITE_PROJECT_ID=your-appwrite-project-id
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Building for Production
 
-## Learn more
+To create a production build:
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+expo build:android
+expo build:ios
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Usage
 
-## Join the community
+- Launch the app on a mobile device or simulator.
+- Sign up or log in using the authentication system powered by Appwrite.
+- Start uploading videos, sharing them with friends, and exploring the latest content.
 
-Join our community of developers creating universal apps.
+## Contributing
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Contributions are welcome! Please fork the repository, create a branch, and submit a pull request for review.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
+- [Appwrite](https://appwrite.io/)
+- [NativeWind](https://www.nativewind.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+---
+
